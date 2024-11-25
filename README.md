@@ -1,20 +1,22 @@
-**Functional Size Measurement with Conceptual Models: A Systematic Literature Review**
+# Functional Size Measurement with Conceptual Models: A Systematic Literature Review
 
 This repository contains scripts, data, and results supporting the paper:
 
-Functional Size Measurement with Conceptual Models: A Systematic Literature Review by Ala Arman et al.
+*Functional Size Measurement with Conceptual Models: A Systematic Literature Review* by Ala Arman et al.
 
-**Project Background**
+## Project Background
 
 This repository supports research on functional size measurement (FSM) methods using conceptual models. The systematic literature review (SLR) investigates FSM approaches, analyzing key methodologies, challenges, and limitations across two decades (2004–2024). The study identifies influential studies, classifies FSM techniques, and provides actionable insights for future research.
 
-**Use Cases**
+## Use Cases
 
-- Researchers analyzing functional size measurement methods.
-- Data analysts investigating citation trends and publication impact.
-- Developers automating systematic literature review processes.
+- Researchers analyzing functional size measurement methods
+- Data analysts investigating citation trends and publication impact
+- Developers automating systematic literature review processes
 
+## Directory Structure
 
+```
 SLR-Functional-Size-Measurement/
 ├── data/
 │   ├── raw/                  # Raw datasets
@@ -23,187 +25,134 @@ SLR-Functional-Size-Measurement/
 ├── scripts/                  # Python scripts for processing
 ├── README.md                 # Documentation
 └── requirements.txt          # Dependencies
+```
 
+## Repository Contents
 
-**Repository Contents**
+### 1. Data
 
-1. **Data**
+#### data/raw/
+- **R_Tot_1137.xlsx**: Initial dataset containing 1137 papers from systematic search
+- **1137_CachedPapers.pkl**: Consolidated cache of retrieved papers in Python dictionary format
+- **allPapers.tsv**: Tab-separated summary file of all processed papers
+- **queryCachedPapers/**: Cached Google Scholar query results
+- **queryResults_tsv_xlsx/**: Processed query results in tabular formats
 
-data/raw/
+#### data/processed/
+- **R1_687.xlsx**: Refined dataset after applying inclusion/exclusion criteria
+- **R_Tot_1137_with_publisher**: Dataset with added publisher information
 
-R_Tot_1137.xlsx: The initial dataset containing 1137 papers retrieved through systematic search.
-1137_CachedPapers.pkl: A consolidated cache of all retrieved papers stored in a Python dictionary. It includes metadata such as title, authors, venue, and citations for each paper.
-allPapers.tsv: A tab-separated file summarizing all processed papers, including metadata and the queries that retrieved them. This file serves as the primary output for analysis or reporting.
-queryCachedPapers/: Stores cached query results from Google Scholar, with each .pkl file corresponding to a specific query. These files speed up processing by avoiding repeated queries.
-queryResults_tsv_xlsx/: Contains processed results of the queries in .tsv or .xlsx formats. These files are used for analysis or sharing in tabular formats.
+### 2. Scripts
+- **scripts/fetch_all_studies.py**: Fetches study metadata from online sources
+- **scripts/fetch_and_update_publishers.py**: Updates dataset with publisher information
+- **scripts/citation_analysis.py**: Performs citation analysis and generates visualizations
+- **Scripts/log.txt**: Script execution logs
 
-data/processed/
+### 3. Results
+- **results/top_20_percent_papers.xlsx**: Papers in top 20% by normalized citation counts
+- **results/Normalized_citation_distribution.png**: Citation distribution visualization
 
-R1_687.xlsx: The refined dataset after applying inclusion/exclusion criteria.
-R_Tot_1137_with_publisher: R_Tot_1137.xlsx with an added column 'publisher' that includes the publisher information for all studies.
+## Usage Instructions
 
-2. Scripts
+### Step 1: Clone the Repository
 
-scripts/fetch_all_studies.py: Fetches metadata of studies from online sources.
-
-scripts/fetch_and_update_publishers.py: Queries to fetch and add publisher information to the dataset.
-
-scripts/citation_analysis.py: Normalizes citation counts by publication year, identifies top 20% influential studies, and generates visualizations.
-
-Scripts/log.txt: Logs the fetch_all_studies.py script
-
-3. Results
-
-results/top_20_percent_papers.xlsx: A list of papers in the top 20% by normalized citation counts.
-
-results/Normalized_citation_distribution_with_the_80th_percentile_cutoff.png: A histogram visualizing the distribution of normalized citations with percentile markers.
-
-**How to Use This Repository**
-
-**Step 1: Clone the Repository**
-
-Clone the repository to your local machine using:
-
+```bash
 git clone https://github.com/armanalaa/SLR-Functional-Size-Measurement.git
+```
 
-**Step 2: Install Dependencies**
+### Step 2: Install Dependencies
 
-Install the required Python packages listed in requirements.txt:
-
+```bash
 pip install -r requirements.txt
+```
 
-**Step 3: Process Data**
+### Step 3: Process Data
 
-Run the provided scripts for various stages of data processing and analysis:
+Execute the scripts in sequence:
 
-Fetch Metadata:
-
+```bash
 python scripts/fetch_all_studies.py
-
-Update Publisher Information:
-
 python scripts/fetch_and_update_publishers.py
-
-Analyze Citations:
-
 python scripts/citation_analysis.py
+```
 
+### Step 4: Review Outputs
 
-**Step 4: Review Outputs**
+Check the `results/` directory for processed datasets and visualizations.
 
-Check the results in the results/ directory for the processed datasets, visualizations, and analysis outputs.
+### Step 5: Configure Google Scholar ID
 
+1. **Locate the Scholar ID**:
+   - Visit the author's [Google Scholar profile](https://scholar.google.com/)
+   - Extract the ID from the URL after `user=`
+   - Example: In `https://scholar.google.com/citations?user=_dS6nXMAAAAJ`, the ID is `_dS6nXMAAAAJ`
 
-**Step 5: Replacing `scholar_id` in `scripts/fetch_all_studies.py`**
+2. **Update the Script**:
+   ```python
+   # In scripts/fetch_all_studies.py
+   scholar_id = 'YOUR_SCHOLAR_ID'  # Replace with actual ID
+   ```
 
-To ensure the script fetches data for the correct Google Scholar profile, follow these steps to replace the `scholar_id`:
+## Key Features
 
-   a. **Locate the Scholar ID:**
-      - Open the [Google Scholar profile](https://scholar.google.com/) of the target author or organization.
-      - The `scholar_id` is the string in the URL after `user=`.
-        - Example URL: `https://scholar.google.com/citations?user=_dS6nXMAAAAJ`
-        - The `scholar_id` here is `_dS6nXMAAAAJ`.
+- Automated data fetching and updating via APIs
+- Citation count normalization for fair comparison
+- Influential study identification using percentile thresholds
+- Comprehensive citation trend visualizations
 
-   b. **Edit the Script:**
-      - Open the file `scripts/fetch_all_studies.py` in a text editor or IDE.
-      - Locate the line:
-        ```python
-           scholar_id = 'scholar_id'
-        ```
-      - Replace `'scholar_id'` with the actual ID:
-        ```python
-           scholar_id = '_dS6nXMAAAAJ'
-        ```
+## Dependencies
 
-   c. **Save the Changes:**
-      - Save the file and ensure it is properly updated in the repository.
+Required Python libraries:
+- pandas
+- openpyxl
+- matplotlib
+- requests
 
-### Example:
-   If your target scholar's profile URL is:
-   `https://scholar.google.com/citations?user=abcd1234&hl=en`
-
-      Update the line in the script to:
-      ```python
-      scholar_id = 'abcd1234'
-
-**Key Features**
-
-- Automated data fetching and updating using APIs.
-
-- Normalization of citation counts to ensure fair comparison across publication years.
-
-- Identification of influential studies using percentile thresholds.
-
-- Comprehensive visualizations of citation trends.
-
-**Dependencies**
-
-The scripts in this repository depend on the following Python libraries:
-
-pandas
-
-openpyxl
-
-matplotlib
-
-requests
-
-**To install dependencies:**
-
+Install via pip:
+```bash
 pip install pandas openpyxl matplotlib requests
+```
 
-**Reproducibility**
+## Reproducibility
 
-To ensure reproducibility of the results, use the following Python version:
+Tested with Python 3.9.x
 
-- Python 3.x (tested with Python 3.9.x)
+## Known Issues
 
-**Known Issues**
-- API limitations: CrossRef API may occasionally restrict access due to rate limits. Consider adding an API key for extended usage.
-- Large datasets may lead to increased processing times.
+- CrossRef API may impose rate limits
+- Large datasets may increase processing time
 
-## Troubleshooting: Resolving `MaxTriesExceededException: Cannot Fetch from Google Scholar`
+## Troubleshooting
 
-The error `MaxTriesExceededException: Cannot Fetch from Google Scholar` occurs because Google Scholar blocks repeated access from the same IP address to prevent scraping. This is due to strict rate limits and anti-bot measures. Follow the steps below to resolve this issue.
+### Resolving `MaxTriesExceededException`
 
----
+If encountering Google Scholar access restrictions:
 
-### Steps to Fix the Issue
-
-#### 1. Use a Proxy
-
-Google Scholar blocks repeated access from the same IP address. Using a proxy service can bypass these restrictions.
-
-##### Using ScraperAPI (Recommended)
-1. Sign up for [ScraperAPI](https://www.scraperapi.com/) and obtain an API key.
-2. Update your script to use the proxy:
+1. **Use ScraperAPI (Recommended)**:
    ```python
    from scholarly import ProxyGenerator
 
    pg = ProxyGenerator()
-   API_KEY = '<Your ScraperAPI Key>'  # Replace with your ScraperAPI key
+   API_KEY = '<Your ScraperAPI Key>'
    success = pg.ScraperAPI(API_KEY)
    scholarly.use_proxy(pg)
+   ```
 
+## Citation
 
-**Citations**
+If using this repository, please cite:
 
-If you use this repository in your research, please cite the following paper:
+```
+Ala Arman et al., "Functional Size Measurement with Conceptual Models: A Systematic Literature Review"
+```
 
-Ala Arman et al., *Functional Size Measurement with Conceptual Models: A Systematic Literature Review.*
+## Acknowledgments
 
-Use the `requirements.txt` file to install exact versions of dependencies.
+This study was supported by the MICS (Made in Italy – Circular and Sustainable) Extended Partnership and funded by Next-Generation EU (Italian PNRR – M4 C2, Invest 1.3 – D.D. 1551.11-10-2022, PE00000004).
 
-**Acknowledgments**
+## Contact
 
-This study was carried out within the MICS (Made in Italy – Circular and Sustainable) Extended Partnership and received funding from Next- Generation EU (Italian PNRR – M4 C2, Invest 1.3 – D.D. 1551.11-10-2022, PE00000004).
-
-**Contact**
-
-For questions or feedback, please contact:
-
-**Ala Arman**
-
+**Ala Arman**  
+Department of Computer, Control and Management Engineering "Antonio Ruberti"  
+Sapienza University of Rome  
 Email: arman@diag.uniroma1.it
-
-Department of Computer, Control and Management Engineering "Antonio Ruberti," Sapienza University of Rome
