@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 # This repository contains scripts, data, and results supporting the paper: *Functional Size Measurement with Conceptual Models: A Systematic Literature Review* by Ala Arman et al.
 
+=======
+# Functional Size Measurement with Conceptual Models: A Systematic Literature Review
+
+This repository contains scripts, data, and results supporting the paper:
+
+*Functional Size Measurement with Conceptual Models: A Systematic Literature Review* by Ala Arman et al.
+
+>>>>>>> a403ae2 (Replaced requirements.txt.txt with requirements and updated README.md)
 ## Project Background
 
 This repository supports research on functional size measurement (FSM) methods using conceptual models. The systematic literature review (SLR) investigates FSM approaches, analyzing key methodologies, challenges, and limitations across two decades (2004–2024). The study identifies influential studies, classifies FSM techniques, and provides actionable insights for future research.
