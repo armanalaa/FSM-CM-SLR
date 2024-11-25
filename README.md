@@ -89,9 +89,42 @@ Analyze Citations:
 python scripts/citation_analysis.py
 
 
-Step 4: Review Outputs
+**Step 4: Review Outputs**
 
 Check the results in the results/ directory for the processed datasets, visualizations, and analysis outputs.
+
+
+**Step 5: Replacing `scholar_id` in `scripts/fetch_all_studies.py`**
+
+To ensure the script fetches data for the correct Google Scholar profile, follow these steps to replace the `scholar_id`:
+
+1. **Locate the Scholar ID:**
+   - Open the [Google Scholar profile](https://scholar.google.com/) of the target author or organization.
+   - The `scholar_id` is the string in the URL after `user=`.
+     - Example URL: `https://scholar.google.com/citations?user=_dS6nXMAAAAJ`
+     - The `scholar_id` here is `_dS6nXMAAAAJ`.
+
+2. **Edit the Script:**
+   - Open the file `scripts/fetch_all_studies.py` in a text editor or IDE.
+   - Locate the line:
+     ```python
+     scholar_id = 'scholar_id'
+     ```
+   - Replace `'scholar_id'` with the actual ID:
+     ```python
+     scholar_id = '_dS6nXMAAAAJ'
+     ```
+
+3. **Save the Changes:**
+   - Save the file and ensure it is properly updated in the repository.
+
+### Example:
+If your target scholar's profile URL is:
+`https://scholar.google.com/citations?user=abcd1234&hl=en`
+
+Update the line in the script to:
+```python
+scholar_id = 'abcd1234'
 
 **Key Features**
 
@@ -124,40 +157,6 @@ pip install pandas openpyxl matplotlib requests
 To ensure reproducibility of the results, use the following Python version:
 
 - Python 3.x (tested with Python 3.9.x)
-
-## Replacing `scholar_id` in `scripts/fetch_all_studies.py`
-
-To ensure the script fetches data for the correct Google Scholar profile, follow these steps to replace the `scholar_id`:
-
-### Steps:
-
-1. **Locate the Scholar ID:**
-   - Open the [Google Scholar profile](https://scholar.google.com/) of the target author or organization.
-   - The `scholar_id` is the string in the URL after `user=`.
-     - Example URL: `https://scholar.google.com/citations?user=_dS6nXMAAAAJ`
-     - The `scholar_id` here is `_dS6nXMAAAAJ`.
-
-2. **Edit the Script:**
-   - Open the file `scripts/fetch_all_studies.py` in a text editor or IDE.
-   - Locate the line:
-     ```python
-     scholar_id = 'scholar_id'
-     ```
-   - Replace `'scholar_id'` with the actual ID:
-     ```python
-     scholar_id = '_dS6nXMAAAAJ'
-     ```
-
-3. **Save the Changes:**
-   - Save the file and ensure it is properly updated in the repository.
-
-### Example:
-If your target scholar's profile URL is:
-`https://scholar.google.com/citations?user=abcd1234&hl=en`
-
-Update the line in the script to:
-```python
-scholar_id = 'abcd1234'
 
 **Known Issues**
 - API limitations: CrossRef API may occasionally restrict access due to rate limits. Consider adding an API key for extended usage.
