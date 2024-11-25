@@ -98,33 +98,33 @@ Check the results in the results/ directory for the processed datasets, visualiz
 
 To ensure the script fetches data for the correct Google Scholar profile, follow these steps to replace the `scholar_id`:
 
-1. **Locate the Scholar ID:**
-   - Open the [Google Scholar profile](https://scholar.google.com/) of the target author or organization.
-   - The `scholar_id` is the string in the URL after `user=`.
-     - Example URL: `https://scholar.google.com/citations?user=_dS6nXMAAAAJ`
-     - The `scholar_id` here is `_dS6nXMAAAAJ`.
+   a. **Locate the Scholar ID:**
+      - Open the [Google Scholar profile](https://scholar.google.com/) of the target author or organization.
+      - The `scholar_id` is the string in the URL after `user=`.
+        - Example URL: `https://scholar.google.com/citations?user=_dS6nXMAAAAJ`
+        - The `scholar_id` here is `_dS6nXMAAAAJ`.
 
-2. **Edit the Script:**
-   - Open the file `scripts/fetch_all_studies.py` in a text editor or IDE.
-   - Locate the line:
-     ```python
-     scholar_id = 'scholar_id'
-     ```
-   - Replace `'scholar_id'` with the actual ID:
-     ```python
-     scholar_id = '_dS6nXMAAAAJ'
-     ```
+   b. **Edit the Script:**
+      - Open the file `scripts/fetch_all_studies.py` in a text editor or IDE.
+      - Locate the line:
+        ```python
+           scholar_id = 'scholar_id'
+        ```
+      - Replace `'scholar_id'` with the actual ID:
+        ```python
+           scholar_id = '_dS6nXMAAAAJ'
+        ```
 
-3. **Save the Changes:**
-   - Save the file and ensure it is properly updated in the repository.
+   c. **Save the Changes:**
+      - Save the file and ensure it is properly updated in the repository.
 
 ### Example:
-If your target scholar's profile URL is:
-`https://scholar.google.com/citations?user=abcd1234&hl=en`
+   If your target scholar's profile URL is:
+   `https://scholar.google.com/citations?user=abcd1234&hl=en`
 
-Update the line in the script to:
-```python
-scholar_id = 'abcd1234'
+      Update the line in the script to:
+      ```python
+      scholar_id = 'abcd1234'
 
 **Key Features**
 
