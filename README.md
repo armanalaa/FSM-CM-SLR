@@ -1,8 +1,4 @@
-# Functional Size Measurement with Conceptual Models: A Systematic Literature Review
-
-This repository contains scripts, data, and results supporting the paper:
-
-*Functional Size Measurement with Conceptual Models: A Systematic Literature Review* by Ala Arman et al.
+# This repository contains scripts, data, and results supporting the paper: *Functional Size Measurement with Conceptual Models: A Systematic Literature Review* by Ala Arman et al.
 
 ## Project Background
 
